@@ -31,7 +31,15 @@
 
 - (void)appendXVimString:(XVimString*)string { [self.string appendString:string]; }
 
-- (void)setXVimString:(XVimString*)string { [self.string setString:string]; }
+- (void)setXVimString:(XVimString*)string {
+    // self is nil
+    // string is NULL
+    DEBUG_LOG(@"self: %@", self);
+    DEBUG_LOG(@"string: %@", string);
+    if (string) {
+        [self.string setString:string];
+    }
+}
 
 - (void)clear
 {

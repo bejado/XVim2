@@ -130,6 +130,8 @@
         newPos = [self.textStorage xvim_indexOfLineNumber:sel.top column:sel.left];
     }
 
+    // this doesn't make sense if yank is NO
+    // self.lastYankedText may be nil if there wasn't any text yanked
     [self.xvimDelegate textView:self didDelete:self.lastYankedText withType:self.lastYankedType];
     [self xvim_changeSelectionMode:XVIM_VISUAL_NONE];
     if (newPos != NSNotFound) {
